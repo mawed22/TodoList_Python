@@ -1,2 +1,1 @@
-Manger,Manger de la bonne nourriture
-Eating,Eating good food
+Tache 1,Faire à manger pour ce spoir
