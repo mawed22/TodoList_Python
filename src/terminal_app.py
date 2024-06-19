@@ -2,7 +2,7 @@ import os
 import sys
 from src.application import Application
 from src.task import Task
-from src.storage import Storage
+from src.storage import Storage 
 
 # Classe concrète représentant l'application terminal
 class TerminalApp(Application):

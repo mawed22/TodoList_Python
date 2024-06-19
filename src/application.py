@@ -5,7 +5,7 @@ class Application(ABC):
     @abstractmethod
     def run(self):
         # Méthode pour démarrer l'application
-        pass
+        pass 
 
     @abstractmethod
     def stop(self):

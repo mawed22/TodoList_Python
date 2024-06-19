@@ -14,7 +14,7 @@ class GUIApp(Application):
     def run(self):
         # Méthode pour démarrer l'application GUI
         self.setup_gui()
-        self.root.mainloop()
+        self.root.mainloop() 
 
     def stop(self):
         # Méthode pour arrêter l'application
