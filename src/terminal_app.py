@@ -11,7 +11,6 @@ class TerminalApp(Application):
         self.running = True
 
     def run(self):
-        # Méthode pour démarrer l'application terminal
         os.system('cls' if os.name == 'nt' else 'clear')
         print("Bienvenue dans le gestionnaire de tâches (Terminal)!")
         while self.running:
@@ -23,20 +22,16 @@ class TerminalApp(Application):
                 print("Veuillez entrer un nombre valide.")
 
     def stop(self):
-        # Méthode pour arrêter l'application
         print("Arrêt de l'application.")
         self.running = False
 
     def save_tasks(self, file_path: str):
-        # Méthode pour sauvegarder les tâches
         self.tasks.save_to_file(file_path)
 
     def load_tasks(self, file_path: str):
-        # Méthode pour charger les tâches
         self.tasks.load_from_file(file_path)
 
     def display_menu(self):
-        # Affiche le menu principal
         print("\nMenu:")
         print("1. Ajouter une tâche")
         print("2. Voir les tâches")
@@ -46,8 +41,7 @@ class TerminalApp(Application):
         print("6. Charger les tâches")
         print("7. Quitter")
 
-    def handle_choice(self, choice):
-        # Gestion des choix de l'utilisateur avec match case
+    def handle_choice(self, choice):   # Gestion des choix de l'utilisateur avec match case
         match choice:
             case 1:
                 self.add_task()
@@ -67,7 +61,6 @@ class TerminalApp(Application):
                 print("Choix invalide, veuillez réessayer.")
 
     def add_task(self):
-        # Ajout d'une tâche
         title = input("Titre de la tâche: ")
         description = input("Description de la tâche: ")
         task = Task(title, description)
@@ -75,12 +68,10 @@ class TerminalApp(Application):
         print("Tâche ajoutée.")
 
     def view_tasks(self):
-        # Affichage des tâches
         for index, task in enumerate(self.tasks.get_tasks()):
             print(f"{index + 1}. {task}")
 
     def modify_task(self):
-        # Modification d'une tâche
         try:
             self.view_tasks()
             task_index = int(input("Entrez le numéro de la tâche à modifier: ")) - 1
@@ -94,7 +85,6 @@ class TerminalApp(Application):
             print("Numéro de tâche invalide.")
 
     def delete_task(self):
-        # Suppression d'une tâche
         try:
             self.view_tasks()
             task_index = int(input("Entrez le numéro de la tâche à supprimer: ")) - 1

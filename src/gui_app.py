@@ -12,16 +12,13 @@ class GUIApp(Application):
         self.root.title("Gestionnaire de Tâches")
 
     def run(self):
-        # Méthode pour démarrer l'application GUI
         self.setup_gui()
         self.root.mainloop() 
 
     def stop(self):
-        # Méthode pour arrêter l'application
         self.root.destroy()
 
-    def setup_gui(self):
-        # Configuration de l'interface utilisateur
+    def setup_gui(self): # Configuration de l'interface utilisateur
         self.frame = tk.Frame(self.root)
         self.frame.pack()
 
@@ -52,7 +49,6 @@ class GUIApp(Application):
         self.load_button.pack()
 
     def add_task(self):
-        # Ajout d'une tâche
         title = self.title_entry.get()
         description = self.desc_entry.get()
         task = Task(title, description)
@@ -60,12 +56,10 @@ class GUIApp(Application):
         messagebox.showinfo("Info", "Tâche ajoutée.")
 
     def view_tasks(self):
-        # Affichage des tâches
         tasks_str = "\n".join(f"{index + 1}. {task}" for index, task in enumerate(self.tasks.get_tasks()))
         messagebox.showinfo("Tâches", tasks_str)
 
     def modify_task(self):
-        # Modification d'une tâche
         task_index = simpledialog.askinteger("Modifier Tâche", "Entrez le numéro de la tâche à modifier:") - 1
         if task_index is not None and 0 <= task_index < len(self.tasks.get_tasks()):
             task = self.tasks.get_task(task_index)
@@ -80,7 +74,6 @@ class GUIApp(Application):
             messagebox.showerror("Erreur", "Numéro de tâche invalide.")
 
     def delete_task(self):
-        # Suppression d'une tâche
         task_index = simpledialog.askinteger("Supprimer Tâche", "Entrez le numéro de la tâche à supprimer:") - 1
         if task_index is not None and 0 <= task_index < len(self.tasks.get_tasks()):
             self.tasks.delete_task(task_index)
@@ -89,11 +82,9 @@ class GUIApp(Application):
             messagebox.showerror("Erreur", "Numéro de tâche invalide.")
 
     def save_tasks(self, file_path: str):
-        # Sauvegarde des tâches
         self.tasks.save_to_file(file_path)
         messagebox.showinfo("Info", "Tâches sauvegardées.")
 
     def load_tasks(self, file_path: str):
-        # Chargement des tâches
         self.tasks.load_from_file(file_path)
         messagebox.showinfo("Info", "Tâches chargées.")

@@ -2,7 +2,6 @@ from src.terminal_app import TerminalApp
 from src.gui_app import GUIApp
 
 def main():
-    # Demander à l'utilisateur de choisir l'
     print("\n Bienvenue sur le votre gestionnaire de tache.")
     name_user = input("Entrer votre nom : ")
     print(f"\n Salut {name_user}, choisi l'interface : ")
