@@ -43,7 +43,7 @@ Ce projet est un gestionnaire de tâches simple permettant aux utilisateurs de c
 2. Installez la bibliothèque `tkinter` :
 
    ```sh
-   pip install customtkinter
+   pip install tkinter
    ```
 
 ### Exécution
